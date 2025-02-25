@@ -29,12 +29,12 @@
   function validateForm() {
     errors = { phone_number: '', password: '', confirmPassword: '', server: '' };
     const cleanedPhone = formData.phone_number.replace(/\D/g, '');
-    if (!/^\d{11}$/.test(cleanedPhone) || !cleanedPhone.startsWith('7')) {
-      errors.phone_number = 'Введите корректный номер телефона (11 цифр, начиная с +7).';
+    if (!/^\d{10}$/.test(cleanedPhone) || !cleanedPhone.startsWith('7')) {
+      errors.phone_number = 'Введите корректный номер телефона (10 цифр, начиная с +7).';
     }
-    if (!/^(?=.*\d)(?=.*[A-Z]).{6,}$/.test(formData.password)) {
-      errors.password = 'Пароль: минимум 6 символов, цифра и заглавная буква.';
-    }
+    // if (!/^(?=.*\d)(?=.*[A-Z]).{6,}$/.test(formData.password)) {
+    //   errors.password = 'Пароль: минимум 6 символов, цифра и заглавная буква.';
+    // }
     if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = 'Пароли не совпадают.';
     }
