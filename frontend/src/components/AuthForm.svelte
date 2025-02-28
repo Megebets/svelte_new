@@ -1,30 +1,58 @@
-<script>
+<script lang="ts">
   import { tokenStore } from '$lib/stores';
   import Registration from './Registration.svelte';
-  import IMask from 'imask'; // Исправленный импорт
-  import { onMount } from 'svelte';
+  import IMask from 'imask';
+  import { onMount, onDestroy } from 'svelte';
+
+  export let onClose; // Проп для закрытия модального окна
 
   let activeTab = 'login';
   let phoneNumber = '';
   let password = '';
   let error = '';
-  let phoneInput;
+  let phoneInput: HTMLInputElement;
+  let mask: IMask.InputMask<IMask.AnyMaskedOptions> | null = null;
+
+  // Функция для инициализации маски
+  function initMask() {
+    if (phoneInput && !mask) {
+      mask = IMask(phoneInput, {
+        mask: '8(000)000-00-00', // Унифицируем с регистрацией
+        lazy: false,
+        placeholderChar: '_',
+        overwrite: true
+      });
+    }
+  }
 
   onMount(() => {
-    IMask(phoneInput, {
-      mask: '+7(000)000-00-00',
-      lazy: false,
-      placeholderChar: '_'
-    });
+    initMask(); // Инициализация при монтировании
   });
 
-  async function handleLogin(event) {
+  // Уничтожаем маску при выходе с компонента
+  onDestroy(() => {
+    if (mask) {
+      mask.destroy();
+      mask = null;
+    }
+  });
+
+  // Обновляем маску при смене вкладки
+  $: if (activeTab === 'login' && phoneInput) {
+    if (mask) mask.destroy(); // Уничтожаем старую маску
+    mask = null;
+    initMask(); // Переинициализируем
+  }
+
+  async function handleLogin(event: Event) {
     event.preventDefault();
     error = '';
 
     const cleanedPhone = phoneNumber.replace(/\D/g, '');
-    if (!/^\d{11}$/.test(cleanedPhone) || !cleanedPhone.startsWith('7')) {
-      error = 'Введите корректный номер телефона (11 цифр, начиная с +7)';
+    const trimmedPhone = cleanedPhone.slice(0, 11); // Обрезаем до 11 цифр
+
+    if (!/^8\d{10}$/.test(trimmedPhone)) {
+      error = 'Введите корректный номер телефона (10 цифр после 8)';
       return;
     }
 
@@ -33,7 +61,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          phone_number: phoneNumber,
+          phone_number: trimmedPhone, // 89998887766
           password: password
         })
       });
@@ -53,7 +81,7 @@
   }
 </script>
 
-<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+<div class="flex items-center justify-center">
   <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
     <div class="flex border-b mb-4">
       <button
@@ -78,7 +106,7 @@
             bind:this={phoneInput}
             bind:value={phoneNumber}
             class="mt-1 block w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="+7(999)999-99-99"
+            placeholder="8(999)999-99-99"
             required
           />
         </div>

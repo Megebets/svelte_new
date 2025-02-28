@@ -2,6 +2,12 @@
   import AuthModal from './AuthForm.svelte';
   let showModal = false; // Состояние модального окна
   let showMenu = false; // Состояние мобильного меню
+
+  // Функция для закрытия модального окна при клике на ссылку
+  function closeModalAndNavigate(url) {
+    showModal = false;
+    window.location.href = url;
+  }
 </script>
 
 <header>
@@ -29,16 +35,16 @@
     <nav class="hidden md:block">
       <ul class="flex space-x-6 text-base">
         <li class="hover:text-green-200 hover:scale-125 transition duration-200">
-          <a href="/">Главная</a>
+          <a href="/" on:click|preventDefault={() => closeModalAndNavigate('/')}>Главная</a>
         </li>
         <li class="hover:text-green-200 hover:scale-125 transition duration-200">
-          <a href="/contacts">Контакты</a>
+          <a href="/contacts" on:click|preventDefault={() => closeModalAndNavigate('/contacts')}>Контакты</a>
         </li>
         <li class="hover:text-green-200 hover:scale-125 transition duration-200">
-          <a href="/about">О нас</a>
+          <a href="/about" on:click|preventDefault={() => closeModalAndNavigate('/about')}>О нас</a>
         </li>
         <li class="hover:text-green-200 hover:scale-125 transition duration-200">
-          <a href="/archive">Архив</a>
+          <a href="/archive" on:click|preventDefault={() => closeModalAndNavigate('/archive')}>Архив</a>
         </li>
         <li class="bg-blue-500 hover:text-green-200 text-white px-6 py-2 rounded-lg hover:scale-105 transition duration-200">
           <button on:click={() => (showModal = true)}>Войти</button>
@@ -51,10 +57,10 @@
   {#if showMenu}
     <div class="md:hidden bg-gray-800 p-4">
       <ul class="space-y-4">
-        <li><a href="/" class="text-white hover:text-green-200">Главная</a></li>
-        <li><a href="/contacts" class="text-white hover:text-green-200">Контакты</a></li>
-        <li><a href="/about" class="text-white hover:text-green-200">О нас</a></li>
-        <li><a href="/archive" class="text-white hover:text-green-200">Архив</a></li>
+        <li><a href="/" on:click|preventDefault={() => closeModalAndNavigate('/')} class="text-white hover:text-green-200">Главная</a></li>
+        <li><a href="/contacts" on:click|preventDefault={() => closeModalAndNavigate('/contacts')} class="text-white hover:text-green-200">Контакты</a></li>
+        <li><a href="/about" on:click|preventDefault={() => closeModalAndNavigate('/about')} class="text-white hover:text-green-200">О нас</a></li>
+        <li><a href="/archive" on:click|preventDefault={() => closeModalAndNavigate('/archive')} class="text-white hover:text-green-200">Архив</a></li>
         <li>
           <button on:click={() => (showModal = true)} class="bg-blue-500 text-white px-6 py-2 rounded-lg">
             Войти
@@ -67,17 +73,17 @@
 
 <!-- Модальное окно -->
 {#if showModal}
-  <AuthModal on:close={() => (showModal = false)} />
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" on:click={() => (showModal = false)}>
+    <div class="bg-white rounded-lg p-4 w-full max-w-md shadow-lg" on:click|stopPropagation>
+      <AuthModal on:close={() => (showModal = false)} />
+    </div>
+  </div>
 {/if}
 
-<style>
+<style lang="postcss">
   @media (max-width: 768px) {
     nav ul {
-      display: none; /* Скрываем обычное меню на мобильных устройствах */
-    }
-
-    .mobile-menu {
-      display: block; /* Показываем мобильное меню */
+      @apply hidden; /* Скрываем обычное меню на мобильных устройствах */
     }
   }
 </style>

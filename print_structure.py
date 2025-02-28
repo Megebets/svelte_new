@@ -30,7 +30,7 @@ def print_tree(path, indent='', exclude_dirs=['__pycache__', 'migrations', 'node
 
 
 # Путь к вашему проекту (измените на ваш актуальный путь)
-path = r'C:\Users\Sh\Desktop\svelte'
+path = r'C:\Users\Sh\Desktop\svelte_new'
 
 # Проверяем, что путь существует
 if os.path.exists(path):
