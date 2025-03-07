@@ -2,12 +2,12 @@
     export let profiles = [];
   </script>
   
-  <div>
-    <h2 class="mb-4 text-xl font-bold">Другие анкеты</h2>
-    <div class="h-64 overflow-y-auto">
+  <div class="bg-gray-100 p-4 rounded-lg mb-6">
+    <h2 class="mb-4 text-xl font-bold">Анкеты других пользователей</h2>
+    <div class="bg-gray-100 p-4 rounded-lg mb-6 h-screen overflow-y-auto">
       {#if profiles.length > 0}
         {#each profiles as profile}
-          <div class="bg-gray-100 p-4 rounded-lg shadow mb-2">
+          <div class="bg-gray-200 p-4 rounded-lg shadow mb-2">
             <h3 class="text-lg font-semibold text-gray-700">{profile.name}, {profile.age}</h3>
             <p class="text-gray-600">Национальность: {profile.nationality}</p>
             <p class="text-gray-600">Адрес: {profile.residence}</p>

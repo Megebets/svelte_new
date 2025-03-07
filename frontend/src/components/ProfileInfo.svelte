@@ -85,10 +85,10 @@
     }
   </script>
   
-  <form class="mx-auto max-w-2xl rounded-md bg-white p-6 shadow-md" on:submit={saveProfile}>
+  <form class="mx-auto max-w-2xl rounded-md bg-gray-100 p-6 shadow-md" on:submit={saveProfile}>
     <h2 class="mb-4 text-xl font-semibold">Редактирование анкеты</h2>
     <div class="grid grid-cols-1 gap-4">
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Фамилия</label>
         <input
           type="text"
@@ -97,7 +97,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Имя</label>
         <input
           type="text"
@@ -106,7 +106,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Отчество</label>
         <input
           type="text"
@@ -115,7 +115,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Пол</label>
         <select
           bind:value={userData.pol}
@@ -127,7 +127,7 @@
         </select>
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Дата рождения</label>
         <input
           type="date"
@@ -136,7 +136,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Место рождения</label>
         <input
           type="text"
@@ -145,7 +145,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Национальность</label>
         <input
           type="text"
@@ -154,7 +154,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Адрес проживания</label>
         <input
           type="text"
@@ -163,7 +163,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Контактный телефон</label>
         <input
           bind:this={phoneInput}
@@ -173,7 +173,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Телефон доверенного лица</label>
         <input
           bind:this={trustedPhoneInput}
@@ -183,7 +183,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Рост (см)</label>
         <input
           type="number"
@@ -192,7 +192,7 @@
         />
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Имеются ли дети?</label>
         <select
           bind:value={userData.has_children}
@@ -230,7 +230,7 @@
         {/if}
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Образование</label>
         <select bind:value={userData.education} class="mt-1 block w-full rounded-md border-gray-300">
           <option value={false}>Нет</option>
@@ -258,7 +258,7 @@
         {/if}
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">У вас есть собственное жилье?</label>
         <select
           bind:value={userData.has_housing}
@@ -269,7 +269,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">У вас есть родители?</label>
         <select
           bind:value={userData.has_parents}
@@ -292,7 +292,7 @@
         {/if}
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Вы работаете?</label>
         <select
           bind:value={userData.has_working}
@@ -303,7 +303,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Вы состояли в браке?</label>
         <select
           bind:value={userData.was_married}
@@ -314,7 +314,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">У вас есть судимость?</label>
         <select
           bind:value={userData.has_criminal_record}
@@ -325,7 +325,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Вы совершаете намаз?</label>
         <select
           bind:value={userData.performs_namaz}
@@ -336,7 +336,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Какого мазхаба придерживаетесь?</label>
         <select
           bind:value={userData.madhhab}
@@ -350,7 +350,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Какие вредные привычки присущи вам?</label>
         <input
           type="text"
@@ -359,7 +359,7 @@
         />
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Возможен брак с разведённым(ой)?</label>
         <select
           bind:value={userData.ok_with_divorced_spouse}
@@ -370,7 +370,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Возможен ли брак с человеком, у которого есть дети?</label>
         <select
           bind:value={userData.ok_with_spouse_children}
@@ -381,7 +381,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Готовы ли к переезду?</label>
         <select
           bind:value={userData.willing_to_relocate}
@@ -393,7 +393,7 @@
       </div>
   
       {#if userData.pol === "Женский"}
-        <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+        <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
           <label class="block text-sm font-medium text-gray-700">Согласна быть второй женой?</label>
           <select
             bind:value={userData.agree_to_be_second_wife}
@@ -405,7 +405,7 @@
         </div>
       {/if}
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Планируете детей?</label>
         <select
           bind:value={userData.plan_to_have_children}
@@ -416,7 +416,7 @@
         </select>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Ваши предпочтения в одежде:</label>
         <input
           type="text"
@@ -425,7 +425,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Возраст будущего(ей) супруга(и)</label>
         <div class="flex gap-2">
           <input
@@ -447,7 +447,7 @@
         </div>
       </div>
   
-      <div class="group rounded-lg border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
+      <div class="group rounded-lg bg-white border-2 border-gray-300 p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Состояние вашего здоровья:</label>
         <input
           type="text"
@@ -456,7 +456,7 @@
         />
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">О себе</label>
         <textarea
           bind:value={userData.additional_info}
@@ -464,7 +464,7 @@
         ></textarea>
       </div>
   
-      <div class="group border-2 border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
+      <div class="group border-2 bg-white border-gray-300 rounded-lg p-4 transition focus-within:border-blue-500">
         <label class="block text-sm font-medium text-gray-700">Требования к супругу</label>
         <textarea
           bind:value={userData.spouse_requirements}

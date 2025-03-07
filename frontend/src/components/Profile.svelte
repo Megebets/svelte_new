@@ -123,25 +123,25 @@
 		  <p class="text-sm text-gray-500">Ваш личный кабинет</p>
 		</div>
 	  </div>
+
 	  <button class="rounded bg-red-500 px-4 py-2 text-white" on:click={logout}>Выход</button>
 	</div>
   
-	<main class="container mx-auto grid flex-grow grid-cols-1 gap-8 px-4 py-8 md:grid-cols-3">
-	  <div class="col-span-2 rounded-lg bg-white p-6 shadow">
-		<h2 class="mb-4 text-xl font-bold">Анкета</h2>
-		{#if !isEditing}
-		  <button class="rounded bg-blue-500 px-4 py-2 text-white" on:click={startEditing}>
-			Редактировать анкету
-		  </button>
-		{/if}
-		{#if isEditing}
-		  <ProfileInfo userData={userData} onSave={handleSave} onCancel={cancelEditing} />
-		{/if}
-	  </div>
-  
-	  <div class="rounded-lg bg-white p-6 shadow">
-		<UsefulTips tips={tipsData} />
-		<OtherProfiles profiles={profilesData} />
-	  </div>
+	<main class="flex flex-col w-3/4 mx-auto gap-8 px-4 py-8 {isEditing ? 'md:flex-row' : ''}">
+		<div class="rounded-lg bg-white p-6 shadow w-full {isEditing ? 'md:w-1/2' : ''}">
+		  {#if !isEditing}
+			<button class="rounded bg-blue-500 px-4 py-2 text-white" on:click={startEditing}>
+			  Редактировать анкету
+			</button>
+		  {/if}
+		  {#if isEditing}
+			<ProfileInfo userData={userData} onSave={handleSave} onCancel={cancelEditing} />
+		  {/if}
+		</div>
+	  
+		<div class="rounded-lg bg-white p-6 shadow w-full {isEditing ? 'md:w-1/2' : ''}">
+		  <UsefulTips tips={tipsData} />
+		  <OtherProfiles profiles={profilesData} />
+		</div>
 	</main>
   </div>
